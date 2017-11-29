@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="panel">
-    <div class="panel-body">
+  <div class="card">
+    <div class="card-block">
       <div ng-if="messages.error" role="alert" class="alert alert-danger">
         <div ng-repeat="error in messages.error">{{error.msg}}</div>
       </div>
@@ -58,8 +58,8 @@
       </form>
     </div>
   </div>
-  <div class="panel">
-    <div class="panel-body">
+  <div class="card">
+    <div class="card-block">
       <form ng-submit="changePassword()" class="form-horizontal">
         <legend>Change Password</legend>
         <div class="form-group">
@@ -97,8 +97,8 @@
       </div>
     </div>
   </div>
-  <div class="panel">
-    <div class="panel-body">
+  <div class="card">
+    <div class="card-block">
       <form ng-submit="deleteAccount()" class="form-horizontal">
         <legend>Delete Account</legend>
         <div class="form-group">

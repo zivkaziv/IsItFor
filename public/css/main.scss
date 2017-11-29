@@ -31,6 +31,7 @@ $panel-body-padding: 30px;
 
 @import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CRaleway:100,300,600,700,800");
 @import "vendor/bootstrap";
+@import "vendor/landing-page";
 
 // Scaffolding
 // -------------------------
@@ -42,6 +43,7 @@ html {
 
 body {
   margin-bottom: 44px;
+  background: white;
 }
 
 footer {
@@ -70,14 +72,14 @@ footer {
 
 .navbar-default .navbar-nav > li > a {
   border-bottom: 3px solid transparent;
-  padding-bottom: ($navbar-padding-vertical - 3);
+  //padding-bottom: ($navbar-padding-vertical - 3);
   transition: all 0.25s;
   &:hover {
     border-bottom-color: #bdbdbd;
   }
   &.navbar-avatar {
-    padding-top: $navbar-padding-vertical - 4.5;
-    padding-bottom: ($navbar-padding-vertical - 4.5) - 3;
+    //padding-top: $navbar-padding-vertical - 4.5;
+    //padding-bottom: ($navbar-padding-vertical - 4.5) - 3;
     img {
       border-radius: 50%;
       width: 30px;
