@@ -1,39 +1,77 @@
-<nav ng-controller="HeaderCtrl" class="navbar navbar-expand-lg navbar-light bg-light">
-  <!--<div class="container">-->
-    <div class="navbar-header">
-      <!--<button type="button" data-toggle="collapse" data-target="#navbar" class="navbar-toggle collapsed">-->
-        <!--<span class="sr-only">Toggle navigation</span>-->
-        <!--<span class="icon-bar"></span>-->
-        <!--<span class="icon-bar"></span>-->
-        <!--<span class="icon-bar"></span>-->
-      <!--</button>-->
-        <!--Brand-->
-      <a href="/" class="navbar-brand" style="height: 100%; padding:0">
-          <img style="height: 50px;width: auto;" src="/resources/img/logo_trans.png" alt="Is it for me?">
-        <!--<img src="/resources/img/logo_trans.png">-->
-      </a>
+<!--<nav ng-controller="HeaderCtrl" class="navbar navbar-expand-lg navbar-light bg-light">-->
+  <!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+    <!--<div class="navbar-header">-->
+        <!--&lt;!&ndash;Brand&ndash;&gt;-->
+      <!--<a href="/" class="navbar-brand" style="height: 100%; padding:0">-->
+          <!--<img style="height: 50px;width: auto;" src="/resources/img/logo_trans.png" alt="Is it for me?">-->
+        <!--&lt;!&ndash;<img src="/resources/img/logo_trans.png">&ndash;&gt;-->
+      <!--</a>-->
+        <!--<button class="navbar-toggler"-->
+                <!--type="button"-->
+                <!--data-toggle="collapse"-->
+                <!--data-target="#navbarTogglerDemo02"-->
+                <!--aria-controls="navbarTogglerDemo02"-->
+                <!--aria-expanded="false"-->
+                <!--aria-label="Toggle navigation">-->
+            <!--<span class="navbar-toggler-icon"></span>-->
+        <!--</button>-->
+    <!--</div>-->
+    <!--<div id="navbar" class="collapse navbar-collapse" id="navbarTogglerDemo02">-->
+      <!--<ul class="nav navbar-nav">-->
+        <!--&lt;!&ndash;<li ng-class="{ active: isActive('/')}"><a href="/">Home</a></li>&ndash;&gt;-->
+        <!--&lt;!&ndash;<li ng-class="{ active: isActive('/about')}"><a href="/contact">About</a></li>&ndash;&gt;-->
+      <!--</ul>-->
+      <!--<ul ng-if="isAuthenticated()" class="nav navbar-nav ml-auto">-->
+
+      <!--</ul>-->
+      <!--<ul ng-if="!isAuthenticated()" class="nav navbar-nav ml-auto">-->
+        <!--<li ng-class="{ active: isActive('/login')}" class="nav-link"><a href="/login">Log in</a></li>-->
+        <!--<li ng-class="{ active: isActive('/signup')}" class="nav-link"><a href="/signup">Sign up</a></li>-->
+      <!--</ul>-->
+    <!--</div>-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</nav>-->
+
+
+<nav ng-controller="HeaderCtrl"
+     class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img style="height: 50px;width: auto;" src="/resources/img/logo_trans.png" alt="Is it for me?"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse ml-auto" id="navbarTogglerDemo02">
+        <div ng-if="!isAuthenticated()" class="ml-auto">
+            <ul class="nav navbar-nav ml-auto">
+                <li ng-class="{ active: isActive('/login')}" class="nav-link"><a href="/login">Log in</a></li>
+                <li ng-class="{ active: isActive('/signup')}" class="nav-link"><a href="/signup">Sign up</a></li>
+            </ul>
+        </div>
+
+        <div ng-if="isAuthenticated()" class="ml-auto">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img ng-src="{{currentUser.picture || currentUser.gravatar}}"> {{currentUser.name || currentUser.email || currentUser.id}} <i class="caret"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+
+                    </div>
+                </li>
+                <!--<li class="dropdown">-->
+                    <!--<a href="#" data-toggle="dropdown" class="navbar-avatar dropdown-toggle">-->
+                        <!---->
+                    <!--</a>-->
+                    <!--<ul class="dropdown-menu">-->
+                <!--<li><a href="/account">My Account</a></li>-->
+                <!--<li class="divider"></li>-->
+                <!--<li><a href="#" ng-click="logout()">Logout</a></li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+            </ul>
+        </div>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <!--<li ng-class="{ active: isActive('/')}"><a href="/">Home</a></li>-->
-        <!--<li ng-class="{ active: isActive('/about')}"><a href="/contact">About</a></li>-->
-      </ul>
-      <ul ng-if="isAuthenticated()" class="nav navbar-nav ml-auto">
-        <li class="dropdown">
-          <a href="#" data-toggle="dropdown" class="navbar-avatar dropdown-toggle">
-            <img ng-src="{{currentUser.picture || currentUser.gravatar}}"> {{currentUser.name || currentUser.email || currentUser.id}} <i class="caret"></i>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="/account">My Account</a></li>
-            <li class="divider"></li>
-            <li><a href="#" ng-click="logout()"}>Logout</a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul ng-if="!isAuthenticated()" class="nav navbar-nav ml-auto">
-        <li ng-class="{ active: isActive('/login')}" class="nav-link"><a href="/login">Log in</a></li>
-        <li ng-class="{ active: isActive('/signup')}" class="nav-link"><a href="/signup">Sign up</a></li>
-      </ul>
-    </div>
-  <!--</div>-->
 </nav>
